@@ -5,3 +5,9 @@ export function getAllArticles() {
     .get("https://nc-news-gdc6.onrender.com/api/articles")
     .then(({data}) => data.articles) 
 }
+
+export function getArticle(article_id) {
+    return axios
+    .get(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}`)
+    .then(({data}) => data.article) 
+}
