@@ -1,5 +1,6 @@
-h1 {
+#title {
     text-align: center;
+    font-size: 3rem;
 }
 
 .articlePage {
@@ -9,6 +10,7 @@ h1 {
 
 .articleCard {
     max-width: 50vw;
+    cursor: pointer;
 }
 
 .articleImg {
@@ -25,8 +27,52 @@ h1 {
     margin-right: 0.5em;
 }
 
+.focusedArticle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 60vw;
+}
+
+.focusedArticle h1 {
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 3rem;
+}
+
+.focusedArticle img {
+    width: 70%;
+    min-width: 360px;
+}
+
+.focusedArticle span {
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    font-size: 1rem;
+}
+
+.focusedArticle p {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 600px) {
     .articleCard {
         max-width: 90vw;
+    }
+
+    .focusedArticle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 90vw;
+    }
+
+    .focusedArticle img {
+        width: 100%;
     }
 }
