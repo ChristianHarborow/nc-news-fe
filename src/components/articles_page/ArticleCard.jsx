@@ -1,6 +1,6 @@
-import { cleanDateTime} from "../utilities"
-import VoteCounter from "./VoteCounter"
-import CommentCounter from "./CommentCounter"
+import { cleanDateTime} from "../../utilities"
+import VoteCounter from "../VoteCounter"
+import CommentCounter from "../CommentCounter"
 
 export default function ArticleCard({article}) {
     const {topic, title, author, created_at, article_img_url, votes, comment_count} = article
