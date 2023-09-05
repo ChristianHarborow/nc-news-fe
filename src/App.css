@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+.articlePage {
+    display: flex;
+    justify-content: center;
+}
+
+.articleCard {
+    max-width: 50vw;
+}
+
+.articleImg {
+    width: 100%;
+}
+
+.voteCommentBar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.voteBox {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .articleCard {
+        max-width: 90vw;
+    }
+}
