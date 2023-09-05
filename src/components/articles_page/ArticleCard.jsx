@@ -1,4 +1,4 @@
-import { cleanDateTime} from "../../utilities"
+import { cleanDateTime, toTitle} from "../../utilities"
 import VoteCounter from "../VoteCounter"
 import CommentCounter from "../CommentCounter"
 
@@ -7,7 +7,7 @@ export default function ArticleCard({article}) {
     
     return (
         <article className="articleCard">
-            <h2>{`${topic} | ${title}`}</h2>
+            <h2>{`${toTitle(topic)} | ${title}`}</h2>
             <p>{`${author} | ${cleanDateTime(created_at)}`}</p>
             <img className="articleImg" src={article_img_url} alt="" />
             <div className="voteCommentBar">
