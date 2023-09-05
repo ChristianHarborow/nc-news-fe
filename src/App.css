@@ -5,7 +5,8 @@
 
 .articlePage {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .articleCard {
@@ -60,6 +61,18 @@
     font-size: 1.2rem;
 }
 
+.commentList {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 60vw;
+}
+
+.commentCard p {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
 @media only screen and (max-width: 600px) {
     .articleCard {
         max-width: 90vw;
@@ -74,5 +87,9 @@
 
     .focusedArticle img {
         width: 100%;
+    }
+
+    .commentList {
+        max-width: 90vw;
     }
 }
