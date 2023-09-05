@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import { getArticle } from '../../api'
 import { cleanDateTime, toTitle } from '../../utilities'
+import CommentList from './CommentList'
 
 export default function ViewArticlePage() {
     const {article_id} = useParams()
@@ -26,7 +27,6 @@ export default function ViewArticlePage() {
 }
 
 function renderArticle(article) {
-    console.log(article);
     const {topic, title, author, created_at, article_img_url, body} = article
 
     return (
@@ -37,6 +37,7 @@ function renderArticle(article) {
                 <img className="focusedArticleImg" src={article_img_url} alt="" />
                 <p>{body}</p>
             </article>
+            <CommentList/>
         </main>
     )
 }
