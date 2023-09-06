@@ -17,3 +17,8 @@ export function getArticleComments(article_id) {
     .get(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}/comments`)
     .then(({data}) => data.comments) 
 }
+
+export function patchArticleVotes(article_id, incVotes) {
+    return axios
+    .patch(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}`, {inc_votes: incVotes})
+}

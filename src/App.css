@@ -10,8 +10,7 @@
 }
 
 .articleCard {
-    max-width: 50vw;
-    cursor: pointer;
+    max-width: 40vw;
 }
 
 .articleImg {
@@ -21,11 +20,7 @@
 .voteCommentBar {
     display: flex;
     justify-content: space-around;
-}
-
-.voteBox {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    align-items: center;
 }
 
 .focusedArticle {
@@ -71,6 +66,42 @@
 .commentCard p {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.voteBox {
+    display: inline-block;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    text-align: center;
+    width: 2rem;
+    font-size: 1rem;
+}
+
+.deselected {
+    margin: 1px;
+    font-size: 1rem;
+}
+
+.upvoted {
+    background-color: rgba(79, 255, 79, 0.5);
+    border-width: 3px;
+    font-size: 1rem;
+}
+
+.downvoted {
+    background-color: rgba(250, 104, 104, 0.5);
+    border-width: 3px;
+    font-size: 1rem;
+}
+
+.alert {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
