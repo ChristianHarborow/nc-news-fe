@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import { getArticle } from '../../api'
 import { cleanDateTime, toTitle } from '../../utilities'
 import CommentList from './CommentList'
+import VoteCounter from '../VoteCounter'
 
 export default function ViewArticlePage() {
     const {article_id} = useParams()
@@ -27,7 +28,7 @@ export default function ViewArticlePage() {
 }
 
 function renderArticle(article) {
-    const {topic, title, author, created_at, article_img_url, body} = article
+    const {topic, title, author, created_at, article_img_url, body, votes, article_id} = article
 
     return (
         <main className='articlePage'>
@@ -37,6 +38,7 @@ function renderArticle(article) {
                 <img className="focusedArticleImg" src={article_img_url} alt="" />
                 <p>{body}</p>
             </article>
+            <VoteCounter startingVotes={votes} parent_id={article_id}/>
             <CommentList/>
         </main>
     )
