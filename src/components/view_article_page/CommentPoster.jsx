@@ -16,13 +16,13 @@ export default function CommentPoster({article_id, setCommentList}) {
         event.preventDefault()
 
         const body = comment.trim()
+        setComment("")
 
         postComment(article_id, user.username, body)
         .then((newComment) => {
             setCommentList((commentList) => {
                 return [newComment, ...commentList]
             })
-            setComment("")
         })
         .catch(() => {
             setError(currError => {
@@ -42,7 +42,6 @@ export default function CommentPoster({article_id, setCommentList}) {
                 <button disabled={comment.trim() === ""}>Post Comment</button>
                 <p className="charCounter">{`${comment.length}/400`}</p>
             </div>
-            
         </form>
     )
 }
