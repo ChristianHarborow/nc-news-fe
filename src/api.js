@@ -22,3 +22,9 @@ export function patchArticleVotes(article_id, incVotes) {
     return axios
     .patch(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}`, {inc_votes: incVotes})
 }
+
+export function postComment(article_id, author, body) {
+    return axios
+    .post(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}/comments`, {author, body})
+    .then(({data}) => data.comment)
+}
