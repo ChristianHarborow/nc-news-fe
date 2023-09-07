@@ -3,7 +3,7 @@ import { getArticles } from "../../api"
 import ArticleCard from "./ArticleCard"
 import { useSearchParams } from "react-router-dom"
 
-export default function ArticlesList({topic}) {
+export default function ArticlesList({topic, sortBy, order}) {
     const [articlesList, setArticlesList] = useState([])
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -12,7 +12,7 @@ export default function ArticlesList({topic}) {
         .then(articles => {
             setArticlesList(articles)
         })
-    }, [topic])
+    }, [topic, sortBy, order])
 
     return (
         <section className="articleList">
