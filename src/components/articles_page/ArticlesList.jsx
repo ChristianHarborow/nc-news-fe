@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react"
-import { getAllArticles } from "../../api"
+import { getArticles } from "../../api"
 import ArticleCard from "./ArticleCard"
+import { useSearchParams } from "react-router-dom"
 
-export default function ArticlesList() {
+export default function ArticlesList({topic}) {
     const [articlesList, setArticlesList] = useState([])
+    const [searchParams, setSearchParams] = useSearchParams();
 
     useEffect(() => {
-        getAllArticles()
+        getArticles(searchParams)
         .then(articles => {
             setArticlesList(articles)
         })
-    }, [])
+    }, [topic])
 
     return (
         <section className="articleList">
