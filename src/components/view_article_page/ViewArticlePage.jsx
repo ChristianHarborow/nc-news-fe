@@ -19,13 +19,13 @@ export default function ViewArticlePage() {
     }, [])
 
     return (
-        <main className="viewArticlePage">
+        <>
             {
                 Object.keys(article).length ? 
                     (renderArticle(article, commentList, setCommentList)) : 
                     (<h1>Loading Article...</h1>)
             }
-        </main>
+        </>
     )
 }
 
