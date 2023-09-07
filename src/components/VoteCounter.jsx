@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { patchArticleVotes } from "../api"
-import { ErrorContext } from "../ErrorContext"
+import { ErrorContext } from "../contexts/ErrorContext"
 import { useContext } from 'react';
 
 export default function VoteCounter({startingVotes, parent_id}) {
