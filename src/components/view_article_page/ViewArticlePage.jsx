@@ -4,10 +4,12 @@ import { getArticle } from '../../api'
 import { cleanDateTime, toTitle } from '../../utilities'
 import CommentList from './CommentList'
 import VoteCounter from '../VoteCounter'
+import CommentPoster from './CommentPoster'
 
 export default function ViewArticlePage() {
     const {article_id} = useParams()
     const [article, setArticle] = useState({})
+    const [commentList, setCommentList] = useState([])
     
     useEffect(() => {
         getArticle(article_id)
@@ -20,14 +22,14 @@ export default function ViewArticlePage() {
         <main className="viewArticlePage">
             {
                 Object.keys(article).length ? 
-                    (renderArticle(article)) : 
+                    (renderArticle(article, commentList, setCommentList)) : 
                     (<h1>Loading Article...</h1>)
             }
         </main>
     )
 }
 
-function renderArticle(article) {
+function renderArticle(article, commentList, setCommentList) {
     const {topic, title, author, created_at, article_img_url, body, votes, article_id} = article
 
     return (
@@ -39,7 +41,8 @@ function renderArticle(article) {
                 <p>{body}</p>
             </article>
             <VoteCounter startingVotes={votes} parent_id={article_id}/>
-            <CommentList/>
+            <CommentPoster article_id={article_id} setCommentList={setCommentList}/>
+            <CommentList article_id={article_id} commentList={commentList} setCommentList={setCommentList}/>
         </main>
     )
 }

@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { getArticleComments } from "../../api"
-import {useParams} from 'react-router-dom'
 import CommentCard from "./CommentCard"
 
-export default function CommentList() {
-    const {article_id} = useParams()
-    const [commentList, setCommentList] = useState([])
-
+export default function CommentList({article_id, commentList, setCommentList}) {
     useEffect(() => {
         getArticleComments(article_id)
         .then((comments) => {
-            console.log(comments);
-            setCommentList(comments)
+            setCommentList(comments.reverse())
         })
     }, [])
 
