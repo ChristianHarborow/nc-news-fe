@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import ArticlesPage from './components/articles_page/ArticlesPage';
 import ViewArticlePage from './components/view_article_page/ViewArticlePage';
 import { Fade, Alert } from '@mui/material';
@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <h1 id='title'>NC|News</h1>
+      <Link to="/"><h1 id='title'>NC|News</h1></Link>
       <Routes>
         <Route path="/" element={<Navigate to="/articles" replace={true} />} />
         <Route path="/articles" element={<ArticlesPage />} />
