@@ -1,6 +1,7 @@
 #title {
     text-align: center;
     font-size: 3rem;
+    color: black;
 }
 
 .articlePage {
@@ -118,6 +119,12 @@
     width: 100%;
 }
 
+.queryBar {
+    display: flex;
+    width: 40vw;
+    justify-content: space-between;
+}
+
 @media only screen and (max-width: 600px) {
     .articleCard {
         max-width: 90vw;
@@ -139,6 +146,10 @@
     }
 
     .commentPoster {
+        width: 90vw;
+    }
+
+    .queryBar {
         width: 90vw;
     }
 }
