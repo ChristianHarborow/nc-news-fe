@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export function getAllArticles() {
+export function getArticles(query) {
+    query = query ? "?" + query : ""
+
     return axios
-    .get("https://nc-news-gdc6.onrender.com/api/articles")
+    .get(`https://nc-news-gdc6.onrender.com/api/articles${query}`)
     .then(({data}) => data.articles) 
 }
 
@@ -27,4 +29,10 @@ export function postComment(article_id, author, body) {
     return axios
     .post(`https://nc-news-gdc6.onrender.com/api/articles/${article_id}/comments`, {author, body})
     .then(({data}) => data.comment)
+}
+
+export function getTopics() {
+    return axios
+    .get(`https://nc-news-gdc6.onrender.com/api/topics`)
+    .then(({data}) => data.topics)
 }
