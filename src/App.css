@@ -64,9 +64,27 @@
     width: 60vw;
 }
 
+.commentCard {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.commentCard span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentCard span button {
+    margin-left: 1rem;
+}
+
 .commentCard p {
     margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .commentPoster {

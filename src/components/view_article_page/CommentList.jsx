@@ -10,22 +10,22 @@ export default function CommentList({article_id, commentList, setCommentList}) {
         })
     }, [])
 
+    function renderCommentList() {
+        return (
+            <>
+                <h3>{`Comments: ${commentList.length}`}</h3>
+                {
+                    commentList.map(comment => {
+                        return <CommentCard key={comment.comment_id} comment={comment} setCommentList={setCommentList}/>
+                    })
+                }
+            </>
+        )
+    }
+
     return (
         <section className="commentList">
             {commentList ? renderCommentList(commentList) : <h3>Loading comments...</h3>}
         </section>
-    )
-}
-
-function renderCommentList(commentList) {
-    return (
-        <>
-            <h3>{`Comments: ${commentList.length}`}</h3>
-            {
-                commentList.map(comment => {
-                    return <CommentCard key={comment.comment_id} comment={comment}/>
-                })
-            }
-        </>
     )
 }
