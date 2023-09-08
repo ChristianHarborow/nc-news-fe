@@ -37,7 +37,7 @@ export default function ArticlesPage() {
         <main className="articlePage">
             <div className="queryBar">
                 <select id="topic" onChange={handleChange} value={topic}>
-                    {topics.map(topic => <option key={topic}>{toTitle(topic)}</option>)}
+                    {topics.map(topic => <option key={topic} value={topic}>{toTitle(topic)}</option>)}
                 </select>
                 <select id="sort_by" onChange={handleChange} value={sortBy}>
                     <option value="created_at">Date</option>
