@@ -36,3 +36,8 @@ export function getTopics() {
     .get(`https://nc-news-gdc6.onrender.com/api/topics`)
     .then(({data}) => data.topics)
 }
+
+export function deleteComment(comment_id) {
+    return axios
+    .delete(`https://nc-news-gdc6.onrender.com/api/comments/${comment_id}`)
+}
