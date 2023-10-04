@@ -1,7 +1,7 @@
+import { Button } from "@mui/material"
+
 export default function CommentCounter({comments}) {
     return (
-        <div>
-            <button>{`Comments ${comments}`}</button>
-        </div>
+        <Button className="commentButton" variant="contained" size="small">{`Comments ${comments}`}</Button>
     )
 }

@@ -1,7 +1,22 @@
+html {
+    background-color: #202324;
+}
+
 #title {
     text-align: center;
     font-size: 3rem;
-    color: black;
+    color: white;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#title-link {
+    color: #465062;
+}
+
+#title span {
+    color: #EF233C;
 }
 
 .articlePage {
@@ -12,16 +27,93 @@
 
 .articleCard {
     max-width: 40vw;
+    margin-bottom: 1rem;
+    background-color: #465062;
+}
+
+.cardContent {
+    padding-bottom: 0px;
 }
 
 .articleImg {
     width: 100%;
 }
 
+.color {
+    color: #e4dbe940
+}
+
+.select {
+    color: #aba499;
+}
+
+.cardText {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.cardHeader {
+    color: white;
+    font-weight: bold;
+    font-size:x-large;
+    margin-bottom: 5px;
+}
+
 .voteCommentBar {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.commentButton {
+    background-color: #2B2D42;
+}
+
+.commentButton:hover {
+    background-color: #a1a1a1;
+    color: black;
+}
+
+.voteCounter {
+    display: flex;
+    align-items: center;
+    background-color: #2B2D42;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.voteBox {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    width: 2rem;
+    font-size: 1rem;
+    color: white;
+}
+
+.deselected {
+    padding: 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.upvoted {
+    background-color: rgba(79, 255, 79, 0.5);
+    font-size: 1rem;
+    padding: 0;
+    color: white;
+}
+
+.downvoted {
+    background-color: rgba(250, 104, 104, 0.5);
+    font-size: 1rem;
+    padding: 0;
+    color: white;
 }
 
 .focusedArticle {
@@ -105,32 +197,6 @@
     cursor: pointer;
 }
 
-.voteBox {
-    display: inline-block;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    text-align: center;
-    width: 2rem;
-    font-size: 1rem;
-}
-
-.deselected {
-    margin: 1px;
-    font-size: 1rem;
-}
-
-.upvoted {
-    background-color: rgba(79, 255, 79, 0.5);
-    border-width: 3px;
-    font-size: 1rem;
-}
-
-.downvoted {
-    background-color: rgba(250, 104, 104, 0.5);
-    border-width: 3px;
-    font-size: 1rem;
-}
-
 .alert {
     position: fixed;
     bottom: 0;
@@ -141,6 +207,7 @@
     display: flex;
     width: 40vw;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
