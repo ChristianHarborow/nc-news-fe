@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import ArticlesPage from './components/articles_page/ArticlesPage';
 import ViewArticlePage from './components/view_article_page/ViewArticlePage';
-import { Fade, Alert } from '@mui/material';
+import { Fade, Alert, Typography } from '@mui/material';
 import { ErrorContext } from "./contexts/ErrorContext"
 import { useContext, useEffect } from 'react';
 
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <Link to="/"><h1 id='title'>NC|News</h1></Link>
+      <Link to="/" id='title-link'><Typography id='title'><span>NC|</span>News</Typography></Link>
       <Routes>
         <Route path="/" element={<Navigate to="/articles" replace={true} />} />
         <Route path="/articles" element={<ArticlesPage />} />

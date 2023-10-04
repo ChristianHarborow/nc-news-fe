@@ -2,6 +2,8 @@ import { useState } from "react"
 import { patchArticleVotes } from "../api"
 import { ErrorContext } from "../contexts/ErrorContext"
 import { useContext } from 'react';
+import { IconButton, Typography } from "@mui/material";
+import { Add, Remove } from "@mui/icons-material";
 
 export default function VoteCounter({startingVotes, parent_id}) {
     const [votes, setVotes] = useState(startingVotes)
@@ -55,10 +57,10 @@ export default function VoteCounter({startingVotes, parent_id}) {
     }
 
     return (
-        <span>
-            <button className={upvoted ? "upvoted" : "deselected"} onClick={handleUpvote}>+1</button>
-            <span className="voteBox">{votes}</span>
-            <button className={downvoted ? "downvoted" : "deselected"} onClick={handleDownvote}>-1</button>
-        </span>
+        <div className="voteCounter">
+            <IconButton className={upvoted ? "upvoted" : "deselected"} onClick={handleUpvote}><Add/></IconButton>
+            <Typography className="voteBox">{votes}</Typography>
+            <IconButton className={downvoted ? "downvoted" : "deselected"} onClick={handleDownvote}><Remove/></IconButton>
+        </div>
     )
 }

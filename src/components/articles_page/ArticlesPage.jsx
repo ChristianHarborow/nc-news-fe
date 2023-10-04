@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import ArticlesList from "./ArticlesList"
 import { getTopics } from "../../api"
-import { toTitle } from "../../utilities"
 import { useSearchParams } from "react-router-dom"
+import QueryBar from "./QueryBar"
 
 export default function ArticlesPage() {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -23,16 +23,18 @@ export default function ArticlesPage() {
     }, [])
 
     function handleChange(event) {
-        const {id, value} = event.target
+        console.log(event);
+        const {name, value} = event.target
+        console.log(event.target);
 
         setQueryInputs(currInputs => {
-            currInputs[id] = value
+            currInputs[name] = value
             return currInputs
         })
 
         setSearchParams((currParams => {
-            if (id === "topic" && value === "All Topics") currParams.delete("topic")
-            else currParams.set(id, value)
+            if (name === "topic" && value === "All Topics") currParams.delete("topic")
+            else currParams.set(name, value)
             return currParams
         }))
     }
@@ -47,20 +49,7 @@ export default function ArticlesPage() {
 
     return (
         <main className="articlePage">
-            <div className="queryBar">
-                <select id="topic" onChange={handleChange} value={topic}>
-                    {topics.map(topic => <option key={topic} value={topic}>{toTitle(topic)}</option>)}
-                </select>
-                <select id="sort_by" onChange={handleChange} value={sort_by}>
-                    <option value="created_at">Date</option>
-                    <option value="comment_count">Comments</option>
-                    <option value="votes">Votes</option>
-                </select>
-                <select id="order" onChange={handleChange} value={order}>
-                    <option value="desc">Desc</option>
-                    <option value="asc">Asc</option>
-                </select>
-            </div>
+            <QueryBar handleChange={handleChange} topics={topics} topic={topic} sort_by={sort_by} order={order}/>
             <ArticlesList resetQueryInputs={resetQueryInputs}/>
         </main>
     )
