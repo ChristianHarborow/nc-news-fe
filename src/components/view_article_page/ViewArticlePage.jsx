@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useRef } from 'react'
 import {useNavigate, useParams} from 'react-router-dom'
 import { getArticle } from '../../api'
 import { cleanDateTime, toTitle } from '../../utilities'
@@ -6,6 +6,7 @@ import CommentList from './CommentList'
 import VoteCounter from '../VoteCounter'
 import CommentPoster from './CommentPoster'
 import { ErrorContext } from '../../contexts/ErrorContext'
+import { Skeleton, Typography } from '@mui/material'
 
 export default function ViewArticlePage() {
     const {article_id} = useParams()
@@ -13,6 +14,7 @@ export default function ViewArticlePage() {
     const [commentList, setCommentList] = useState([])
     const {error, setError} = useContext(ErrorContext)
     const navigate = useNavigate()
+    const ref = useRef(null);
     
     useEffect(() => {
         getArticle(article_id)
@@ -50,30 +52,36 @@ export default function ViewArticlePage() {
     }, [])
 
     return (
-        <>
+        <main className='articlePage'>
             {
                 Object.keys(article).length ? 
-                    (renderArticle(article, commentList, setCommentList)) : 
-                    (<h1>Loading Article...</h1>)
+                    (renderArticle(article, commentList, setCommentList, ref)) : 
+                    (
+                        <article className='focusedArticle'>
+                            <Skeleton width="100%" sx={{ fontSize: '10rem' }}/>
+                            <Skeleton variant='rectangular' className='imageSkeleton'/>
+                            <Skeleton width="100%" sx={{ fontSize: '10rem' }}/>
+                        </article>
+                    )
             }
-        </>
+        </main>
     )
 }
 
-function renderArticle(article, commentList, setCommentList) {
+function renderArticle(article, commentList, setCommentList, ref) {
     const {topic, title, author, created_at, article_img_url, body, votes, article_id} = article
 
     return (
-        <main className='articlePage'>
+        <>
             <article className='focusedArticle'>
-                <h1>{`${toTitle(topic)} | ${title}`}</h1>
-                <span>{`${author} | ${cleanDateTime(created_at)}`}</span>
+                <Typography className='articleTitle' component="h2">{`${toTitle(topic)} | ${title}`}</Typography>
+                <Typography className='createdInfo'>{`${author} | ${cleanDateTime(created_at)}`}</Typography>
                 <img className="focusedArticleImg" src={article_img_url} alt="" />
-                <p>{body}</p>
+                <Typography className='articleBody'>{body}</Typography>
             </article>
             <VoteCounter startingVotes={votes} parent_id={article_id}/>
             <CommentPoster article_id={article_id} setCommentList={setCommentList}/>
-            <CommentList article_id={article_id} commentList={commentList} setCommentList={setCommentList}/>
-        </main>
+            <CommentList commentsRef={ref} article_id={article_id} commentList={commentList} setCommentList={setCommentList}/>
+        </>
     )
 }
