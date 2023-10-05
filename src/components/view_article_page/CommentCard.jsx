@@ -1,9 +1,10 @@
 import { cleanDateTime } from "../../utilities"
 import { UserContext } from "../../contexts/UserContext"
 import { useContext, useState } from "react"
-import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, colors} from "@mui/material"
+import {Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button, Typography, IconButton} from "@mui/material"
 import {deleteComment} from "../../api"
 import { ErrorContext } from "../../contexts/ErrorContext"
+import { DeleteOutlined } from "@mui/icons-material"
 
 export default function CommentCard({comment, setCommentList}) {
     const {comment_id, author, created_at, body} = comment
@@ -33,7 +34,9 @@ export default function CommentCard({comment, setCommentList}) {
     function renderDelete() {
         return (
             <>
-                <button onClick={() => setOpen(true)}>Delete</button>
+                <IconButton onClick={() => setOpen(true)}>
+                    <DeleteOutlined/>
+                </IconButton>
                 <Dialog open={open} onClose={() => setOpen(false)}>
                     <DialogTitle>Delete this comment?</DialogTitle>
                     <DialogContent>
@@ -50,11 +53,11 @@ export default function CommentCard({comment, setCommentList}) {
     
     return (
         <article className="commentCard">
-            <span>
+            <Typography component="span">
                 {`${author} | ${cleanDateTime(created_at)}`}
                 {author === user.username ? renderDelete() : undefined}
-            </span>
-            <p>{body}</p>
+            </Typography>
+            <Typography>{body}</Typography>
         </article>
     )
 }
