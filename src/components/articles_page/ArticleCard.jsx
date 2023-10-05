@@ -20,7 +20,7 @@ export default function ArticleCard({article}) {
             </CardContent>
             </CardActionArea>
             <div className="voteCommentBar">
-                    <CommentCounter comments={comment_count}/>
+                    <CommentCounter comments={comment_count} articleId={article_id}/>
                     <VoteCounter startingVotes={votes} parent_id={article_id}/>
             </div>
             
