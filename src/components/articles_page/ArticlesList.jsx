@@ -3,6 +3,7 @@ import { getArticles } from "../../api"
 import ArticleCard from "./ArticleCard"
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
 import { ErrorContext } from '../../contexts/ErrorContext'
+import { Skeleton } from '@mui/material'
 
 export default function ArticlesList({resetQueryInputs}) {
     const [articlesList, setArticlesList] = useState([])
@@ -53,7 +54,10 @@ export default function ArticlesList({resetQueryInputs}) {
             {
                 articlesList.length ? 
                 articlesList.map(article => <ArticleCard key={article.article_id} article={article}/>) :
-                <h1>Loading Articles...</h1>
+                <>
+                    <Skeleton variant="rectangular" className="articleCard" style={{height: "40vh"}}/>
+                    <Skeleton variant="rectangular" className="articleCard" style={{height: "40vh"}}/>
+                </>
             }
         </section>
     )
