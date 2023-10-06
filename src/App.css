@@ -31,6 +31,7 @@ p {
 
 .articleCard {
     max-width: 40vw;
+    width: 40vw;
     margin-bottom: 1rem;
     background-color: #465062;
 }
@@ -252,14 +253,15 @@ p {
 
 .queryBar {
     display: flex;
-    width: 40vw;
     justify-content: space-between;
+    width: 40vw;
     margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 600px) {
     .articleCard {
         max-width: 90vw;
+        width: 90vw;
     }
 
     .focusedArticle {
