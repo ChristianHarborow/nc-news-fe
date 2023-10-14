@@ -182,6 +182,22 @@ p {
     border-color: #2B2D42;
 }
 
+.textInput div textarea{
+    color: white;
+}
+
+.textInput div input{
+    color: white;
+}
+
+.textInput div {
+    background-color:#465062;
+}
+
+.textInput fieldset {
+    border-color: #2B2D42;
+}
+
 .commentList {
     display: flex;
     flex-direction: column;
@@ -256,6 +272,10 @@ p {
     justify-content: space-between;
     width: 40vw;
     margin-bottom: 1rem;
+}
+
+.buttonColor {
+    background-color: #2B2D42;
 }
 
 @media only screen and (max-width: 600px) {
