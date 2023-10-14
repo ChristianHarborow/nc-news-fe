@@ -2,6 +2,7 @@ import './App.css'
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import ArticlesPage from './components/articles_page/ArticlesPage';
 import ViewArticlePage from './components/view_article_page/ViewArticlePage';
+import CreateArticlePage from './components/create_article_page/CreateArticlePage';
 import { Fade, Alert, Typography } from '@mui/material';
 import { ErrorContext } from "./contexts/ErrorContext"
 import { useContext, useEffect } from 'react';
@@ -38,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/articles" replace={true} />} />
         <Route path="/articles" element={<ArticlesPage />} />
+        <Route path="/create-article" element={<CreateArticlePage />} />
         <Route path="/article/:article_id" element={<ViewArticlePage />} />
         <Route path="*" element={
           <InvalidPathWrapper>
