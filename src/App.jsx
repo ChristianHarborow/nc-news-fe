@@ -2,16 +2,17 @@ import './App.css'
 import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import ArticlesPage from './components/articles_page/ArticlesPage';
 import ViewArticlePage from './components/view_article_page/ViewArticlePage';
-import { Fade, Alert, Typography, Menu, MenuItem, Avatar } from '@mui/material';
+import { Fade, Alert, Typography, Avatar } from '@mui/material';
 import { ErrorContext } from "./contexts/ErrorContext"
 import { UserContext } from './contexts/UserContext';
 import { useContext, useEffect, useState } from 'react';
 import DesktopUserMenu from './components/DesktopUserMenu';
+import MobileUserMenu from './components/MobileUserMenu';
 
 function App() {
   const { user } = useContext(UserContext)
   const [anchor, setAnchor] = useState(null)
-  const open = Boolean(anchor)
+  const closeMenu = () => setAnchor(null)
   const {error, setError} = useContext(ErrorContext)
   const location = useLocation()
 
@@ -23,10 +24,6 @@ function App() {
         return newError
       })
     }, 2000);
-  }
-
-  function closeMenu() {
-    setAnchor(null)
   }
 
   function InvalidPathWrapper({children}) {
@@ -45,21 +42,14 @@ function App() {
     <>
       <span style={{position: "relative"}}>
         <Link to="/" id='title-link'><Typography id='title'><span>NC|</span>News</Typography></Link>
-        <div style={{position: "absolute", right: "2vw", top: 0, bottom: 0, display: "flex", alignItems: "center"}} className='mobileUserMenu'>
-          <Typography>
-            {user.username}
-          </Typography>
-          <Avatar variant="square" src={user.avatarUrl} onClick={(event) => setAnchor(event.currentTarget)} style={{marginLeft: "1rem"}}/>
-        </div>
+        <Avatar 
+          variant="square" src={user.avatarUrl} onClick={(event) => setAnchor(event.currentTarget)} 
+          style={{position: "absolute", right: "2vw", top: 0, bottom: 0, marginTop: "auto", marginBottom: "auto"}}
+          className='mobileAvatar'
+        />
       </span>
-
-      <Menu anchorEl={anchor} open={open} onClose={closeMenu}>
-        <MenuItem>My Articles</MenuItem>
-        <MenuItem>My Comments</MenuItem>
-        <MenuItem>Create Article</MenuItem>
-        <MenuItem>Log Out</MenuItem>
-      </Menu>
-
+      
+      <MobileUserMenu user={user} anchor={anchor} closeMenu={closeMenu}/>
       <DesktopUserMenu user={user}/>
       
       <Routes>
