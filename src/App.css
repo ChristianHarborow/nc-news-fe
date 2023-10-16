@@ -9,9 +9,14 @@ html {
     font-weight: bold;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    width: fit-content;
 }
 
 #title-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     color: #465062;
 }
 
@@ -258,7 +263,15 @@ p {
     margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+.mobileUserMenu {
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 650px) {
+    #title-link {
+        margin-left: 3vw;
+    } 
+
     .articleCard {
         max-width: 90vw;
         width: 90vw;
@@ -292,5 +305,13 @@ p {
 
     .queryBar {
         width: 90vw;
+    }
+
+    .desktopUserMenu {
+        visibility: hidden;
+    }
+
+    .mobileUserMenu {
+        visibility: visible;
     }
 }
