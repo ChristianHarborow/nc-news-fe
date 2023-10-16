@@ -263,8 +263,16 @@ p {
     margin-bottom: 1rem;
 }
 
-.mobileUserMenu {
+.mobileAvatar {
     visibility: hidden;
+}
+
+.mobileUserMenu .MuiPaper-root{
+    background-color: #202324;
+}
+
+.mobileUserMenu li {
+    color: white;
 }
 
 @media only screen and (max-width: 650px) {
@@ -311,7 +319,7 @@ p {
         visibility: hidden;
     }
 
-    .mobileUserMenu {
+    .mobileAvatar {
         visibility: visible;
     }
 }
