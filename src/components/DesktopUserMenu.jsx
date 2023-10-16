@@ -4,7 +4,7 @@ export default function DesktopUserMenu({user}) {
     return (
         <div style={{position: "fixed", right: "2vw", top: "3rem"}} className='desktopUserMenu'>
         
-        <div style={{display: "flex", alignItems: "center"}}>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "end"}}>
           <Typography>
             {user.username}
           </Typography>
