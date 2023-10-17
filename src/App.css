@@ -278,6 +278,69 @@ p {
     background-color: #2B2D42;
 }
 
+#formTitle {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.formInput div input{
+    color: white;
+}
+
+.formInput label {
+    color: white;
+}
+
+.formInput div {
+    background-color: #202324;
+}
+
+.formInput fieldset {
+    border-color: #2B2D42;
+}
+
+.multilineInput {
+    flex: 1;
+    flex-direction: column;
+}
+
+.multilineInput label {
+    color: white;
+}
+
+.multilineInput div {
+    flex: 1;
+    flex-direction: column;
+    background-color: #202324;
+}
+
+.multilineInput textarea {
+    flex: 1;
+    flex-direction: column;
+    color: white;
+}
+
+.formSelect {
+    color: #aba499;
+}
+
+.formSelect div {
+    background-color: #202324;
+}
+
+.formSelect label {
+    color: white;
+}
+
+.formSelect .MuiSvgIcon-root {
+    fill: white !important
+}
+
+.formSelect .MuiOutlinedInput-notchedOutline {
+    border-color: #e4dbe940
+}
+
 @media only screen and (max-width: 600px) {
     .articleCard {
         max-width: 90vw;
