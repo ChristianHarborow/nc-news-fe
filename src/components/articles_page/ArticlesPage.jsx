@@ -9,7 +9,7 @@ export default function ArticlesPage() {
     const [topics, setTopics] = useState(["All Topics"])
     const [queryInputs, setQueryInputs] = useState({
         topic: searchParams.get("topic") || "All Topics",
-        sort_by: searchParams.get("sort_by") || "date",
+        sort_by: searchParams.get("sort_by") || "created_at",
         order: searchParams.get("order") || "desc"
     })
     const {topic, sort_by, order} = queryInputs

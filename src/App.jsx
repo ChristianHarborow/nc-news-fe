@@ -3,11 +3,17 @@ import { Routes, Route, Navigate, Link, useLocation } from 'react-router-dom';
 import ArticlesPage from './components/articles_page/ArticlesPage';
 import ViewArticlePage from './components/view_article_page/ViewArticlePage';
 import CreateArticlePage from './components/create_article_page/CreateArticlePage';
-import { Fade, Alert, Typography } from '@mui/material';
+import { Fade, Alert, Typography, Avatar } from '@mui/material';
 import { ErrorContext } from "./contexts/ErrorContext"
-import { useContext, useEffect } from 'react';
+import { UserContext } from './contexts/UserContext';
+import { useContext, useEffect, useState } from 'react';
+import DesktopUserMenu from './components/DesktopUserMenu';
+import MobileUserMenu from './components/MobileUserMenu';
 
 function App() {
+  const { user } = useContext(UserContext)
+  const [anchor, setAnchor] = useState(null)
+  const closeMenu = () => setAnchor(null)
   const {error, setError} = useContext(ErrorContext)
   const location = useLocation()
 
@@ -35,7 +41,18 @@ function App() {
 
   return (
     <>
-      <Link to="/" id='title-link'><Typography id='title'><span>NC|</span>News</Typography></Link>
+      <span style={{position: "relative"}}>
+        <Link to="/" id='title-link'><Typography id='title'><span>NC|</span>News</Typography></Link>
+        <Avatar 
+          variant="square" src={user.avatarUrl} onClick={(event) => setAnchor(event.currentTarget)} 
+          style={{position: "absolute", right: "2vw", top: 0, bottom: 0, marginTop: "auto", marginBottom: "auto"}}
+          className='mobileAvatar'
+        />
+      </span>
+      
+      <MobileUserMenu user={user} anchor={anchor} closeMenu={closeMenu}/>
+      <DesktopUserMenu user={user}/>
+      
       <Routes>
         <Route path="/" element={<Navigate to="/articles" replace={true} />} />
         <Route path="/articles" element={<ArticlesPage />} />

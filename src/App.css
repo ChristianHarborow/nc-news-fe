@@ -9,9 +9,14 @@ html {
     font-weight: bold;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    width: fit-content;
 }
 
 #title-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
     color: #465062;
 }
 
@@ -182,22 +187,6 @@ p {
     border-color: #2B2D42;
 }
 
-.textInput div textarea{
-    color: white;
-}
-
-.textInput div input{
-    color: white;
-}
-
-.textInput div {
-    background-color:#465062;
-}
-
-.textInput fieldset {
-    border-color: #2B2D42;
-}
-
 .commentList {
     display: flex;
     flex-direction: column;
@@ -341,7 +330,23 @@ p {
     border-color: #e4dbe940
 }
 
-@media only screen and (max-width: 600px) {
+.mobileAvatar {
+    visibility: hidden;
+}
+
+.mobileUserMenu .MuiPaper-root{
+    background-color: #202324;
+}
+
+.mobileUserMenu li {
+    color: white;
+}
+
+@media only screen and (max-width: 650px) {
+    #title-link {
+        margin-left: 3vw;
+    } 
+
     .articleCard {
         max-width: 90vw;
         width: 90vw;
@@ -375,5 +380,13 @@ p {
 
     .queryBar {
         width: 90vw;
+    }
+
+    .desktopUserMenu {
+        visibility: hidden;
+    }
+
+    .mobileAvatar {
+        visibility: visible;
     }
 }
