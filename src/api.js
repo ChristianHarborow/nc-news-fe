@@ -41,3 +41,9 @@ export function deleteComment(comment_id) {
     return axios
     .delete(`https://nc-news-gdc6.onrender.com/api/comments/${comment_id}`)
 }
+
+export function postArticle(newArticle) {
+    return axios
+    .post(`https://nc-news-gdc6.onrender.com/api/articles`, newArticle)
+    .then(({data}) => data.article.article_id)
+}
