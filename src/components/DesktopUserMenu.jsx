@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import { Avatar, List, ListItem, ListItemText, ListItemButton, Typography } from '@mui/material'
 
 export default function DesktopUserMenu({user}) {
+    const navigate = useNavigate()
+
     return (
         <div style={{position: "fixed", right: "2vw", top: "3rem"}} className='desktopUserMenu'>
         
@@ -23,7 +26,7 @@ export default function DesktopUserMenu({user}) {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-          <ListItemButton>
+          <ListItemButton onClick={() => {navigate("/create-article")}}>
               <ListItemText primary="Create Article"/>
             </ListItemButton>
           </ListItem>

@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom'
 import { Avatar, Menu, MenuItem, Divider } from '@mui/material'
 
 export default function MobileUserMenu({user, anchor, closeMenu}) {
+    const navigate = useNavigate()
     const open = Boolean(anchor)
     
     return (
@@ -17,7 +19,7 @@ export default function MobileUserMenu({user, anchor, closeMenu}) {
             <Divider/>
             <MenuItem>My Articles</MenuItem>
             <MenuItem>My Comments</MenuItem>
-            <MenuItem>Create Article</MenuItem>
+            <MenuItem onClick={() => {navigate("/create-article")}}>Create Article</MenuItem>
             <MenuItem>Log Out</MenuItem>
         </Menu>
     )
